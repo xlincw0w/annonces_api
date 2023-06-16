@@ -1,0 +1,22 @@
+server:
+  port: 5000
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    url: jdbc:postgresql://mel.db.elephantsql.com/fvhillyi
+    username: fvhillyi
+    password: xhs_-juapf7liC5IyA2Z4GvYwybblFeK
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  main:
+    web-application-type: servlet
