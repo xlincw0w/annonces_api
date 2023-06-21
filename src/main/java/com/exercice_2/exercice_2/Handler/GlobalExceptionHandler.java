@@ -1,4 +1,4 @@
-package com.exercice_2.exercice_2.Handlers;
+package com.exercice_2.exercice_2.Handler;
 
 import com.exercice_2.exercice_2.Templates.UseResponse;
 import jakarta.persistence.EntityNotFoundException;

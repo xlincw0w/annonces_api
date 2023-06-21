@@ -7,6 +7,7 @@ import com.exercice_2.exercice_2.Service.AnnonceService;
 import com.exercice_2.exercice_2.Templates.UseResponse;
 import jakarta.validation.Valid;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -30,9 +32,11 @@ public class AnnonceController {
   private AnnonceService annonceService;
 
   @GetMapping
-  public ResponseEntity<UseResponse<List<Annonce>>> fetchAnnonces() {
+  public ResponseEntity<UseResponse<List<Annonce>>> fetchAnnonces(
+    @RequestParam Map<String, String> params
+  ) {
     UseResponse<List<Annonce>> response = new UseResponse<>();
-    response.setPayload(this.annonceService.fetchAnnonces());
+    response.setPayload(this.annonceService.fetchAnnonces(params));
     return ResponseEntity.status(HttpStatus.OK).body(response);
   }
 
