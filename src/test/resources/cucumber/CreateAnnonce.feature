@@ -7,8 +7,8 @@ Feature: Create Announce
                 "title": "test",
                 "description": "test",
                 "price": 100,
-                "type": "VEHICLE"
+                "type": "VEHICULE"
             }
             """
         When the client sends a POST request to "/api/annonce"
-        Then the response status code should be 201 CREATED
+        Then the response status code should be "201 CREATED"
